@@ -1,7 +1,18 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/auth/login/Login";
+import Register from "./pages/auth/register/Register";
+import Otp from "./pages/auth/otp/Otp";
 
 function App() {
-  return <div className="bg-amber-400">App</div>;
+  return (
+    <>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/otp" element={<Otp />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
