@@ -41,7 +41,7 @@ const Otp = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-200 to-blue-400 ">
       <div className="bg-white shadow-md rounded-2xl p-8 w-full max-w-md">
         <Title level={3} className="text-center mb-4">
           OTP Verification

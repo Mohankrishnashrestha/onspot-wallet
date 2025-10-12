@@ -12,7 +12,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-200 to-blue-400 ">
       <div className="flex flex-col md:flex-row bg-white shadow-xl rounded-2xl overflow-hidden w-full max-w-5xl">
         {/* Left Side - Form Section */}
         <div className="w-full md:w-1/2 p-10 flex flex-col justify-center">
@@ -80,7 +80,7 @@ const Login = () => {
                 block
                 className="bg-blue-600 hover:bg-blue-700 rounded-md h-10"
               >
-                Sign In
+                Login
               </Button>
             </Form>
           </div>
@@ -89,7 +89,7 @@ const Login = () => {
         {/* Right Side - Image Section */}
         <div className="hidden md:flex md:w-1/2 bg-gray-50 items-center justify-center p-6">
           <img
-            src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/media/7ed1d5b9e18bfb2f9ad3f79a02f12e3e.gif"
+            src="images/logo.png"
             alt="Login Illustration"
             className="w-4/5 max-w-md"
           />
