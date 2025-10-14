@@ -3,7 +3,7 @@ import { UserOutlined } from "@ant-design/icons";
 
 function Header() {
   return (
-    <div className="bg-gray-100 shadow-sm fixed w-full z-10 h-16">
+    <div className="bg-gray-100 shadow-sm  w-full z-10 h-16">
       <div className="flex flex-wrap items-center justify-between max-w-7xl mx-auto gap-3">
         {/* Left - Logo */}
         <div className="flex-shrink-0">
