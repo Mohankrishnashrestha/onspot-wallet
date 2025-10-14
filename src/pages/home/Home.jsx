@@ -1,12 +1,14 @@
-import React from "react";
-import { Button, Carousel, Rate } from "antd";
-import { Card, Row, Col } from "antd";
+import React, { useEffect } from "react";
+import { Button, Carousel, Rate, Card, Row, Col } from "antd";
 import {
   UserOutlined,
   GlobalOutlined,
   DollarCircleOutlined,
 } from "@ant-design/icons";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS CSS
 
+// Banner data
 const data = [
   {
     id: 1,
@@ -25,6 +27,7 @@ const data = [
   },
 ];
 
+// Stats data
 const statsData = [
   {
     title: "Happy Users",
@@ -45,6 +48,7 @@ const statsData = [
   },
 ];
 
+// Testimonials data
 const testimonialsData = [
   {
     id: 1,
@@ -73,11 +77,20 @@ const testimonialsData = [
 ];
 
 const Home = () => {
+  // ✅ Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration
+      once: false, // only animate once
+      offset: 100, // trigger offset
+    });
+  }, []);
+
   return (
     <div>
       {/* part 1 */}
-      <div className="w-full mt-20">
-        <Carousel arrows infinite={true} autoplay>
+      <div className="w-full mt-20" data-aos="fade-up">
+        <Carousel arrows infinite autoplay>
           {data.map((banner) => (
             <div key={banner.id} className="relative">
               <img
@@ -86,7 +99,10 @@ const Home = () => {
                 className="w-full h-screen object-cover"
               />
               <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                <h3 className="text-white text-3xl md:text-5xl font-bold text-center px-4">
+                <h3
+                  className="text-white text-3xl md:text-5xl font-bold text-center px-4"
+                  data-aos="zoom-in"
+                >
                   {banner.title}
                 </h3>
               </div>
@@ -94,27 +110,37 @@ const Home = () => {
           ))}
         </Carousel>
       </div>
+
       {/* part 2 */}
       <div className="bg-[#1B03A3] p-10">
-        <div className="max-w-7xl mx-auto ">
-          <h2 className="text-3xl border-l-4 border-amber-500 pl-2">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className="text-3xl border-l-4 border-amber-500 pl-2 text-white"
+            data-aos="fade-right"
+          >
             Description
           </h2>
 
-          <div className=" px-4 py-5 flex flex-col md:flex-row gap-8 ">
-            <div className="md:w-1/2">
+          <div className="px-4 py-5 flex flex-col md:flex-row gap-8">
+            {/* LEFT SIDE IMAGE */}
+            <div className="md:w-1/2" data-aos="fade-right">
               <img
                 src="/images/2.png"
                 alt="Onspot Wallet App"
                 className="w-full h-full object-cover rounded-xl shadow-lg"
               />
             </div>
-            <div className="md:w-1/2 flex flex-col justify-center shadow-lg px-5 py-2 rounded-xl bg-white">
+
+            {/* RIGHT SIDE CONTENT */}
+            <div
+              className="md:w-1/2 flex flex-col justify-center shadow-lg px-5 py-2 rounded-xl bg-white"
+              data-aos="fade-left"
+            >
               <h2 className="text-4xl font-bold mb-4 text-gray-800">
                 Onspot Wallet
               </h2>
               <p className="text-gray-600 mb-6">
-                A revolutionary digital wallet that works **offline**! Make
+                A revolutionary digital wallet that works <b>offline</b>! Make
                 payments, manage transactions, and stay in control even without
                 an internet connection. Fast, secure, and reliable — anytime,
                 anywhere.
@@ -125,29 +151,34 @@ const Home = () => {
                 <li>Secure and easy-to-use</li>
                 <li>Track all your spending</li>
               </ul>
-              <Button type="primary">Learn More</Button>
+              <Button type="primary" data-aos="zoom-in">
+                Learn More
+              </Button>
             </div>
           </div>
         </div>
       </div>
+
       {/* part 3 */}
-      <div className="relative w-full py-20 ">
+      <div className="relative w-full py-20" data-aos="fade-up">
         <img
           src="https://coolbackgrounds.imgix.net/2SvDjcgyav5C1DOb79JKXl/d3b06db5bb6bdb4ab237f666b5b4980e/compute-ea4c57a4.png?w=3840&q=60&auto=format,compress"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60"></div>
-        <div className="absolute top-0 left-10 lg:left-20 pt-2">
-          <h2 className="text-white border-l-4 border-amber-500 pl-2 text-3xl ">
-            Trusted Users
-          </h2>
-        </div>
 
         <div className="relative max-w-7xl mx-auto px-4">
+          <h2
+            className="text-white border-l-4 border-amber-500 pl-2 text-3xl mb-10"
+            data-aos="fade-down"
+          >
+            Trusted Users
+          </h2>
+
           <Row gutter={[16, 16]} justify="center">
             {statsData.map((stat, index) => (
-              <Col xs={24} sm={12} md={8} key={index}>
+              <Col xs={24} sm={12} md={8} key={index} data-aos="zoom-in">
                 <Card
                   hoverable
                   className="text-center py-6"
@@ -162,20 +193,29 @@ const Home = () => {
           </Row>
         </div>
       </div>
+
       {/* part 4 */}
-      <div className="relative w-full py-20 bg-gradient-to-r from-[#7B68EE]/20 via-[#6A5ACD]/20 to-[#5C2EF2]/20">
-        {/* Overlay effect */}
+      <div
+        className="relative w-full py-20 bg-gradient-to-r from-[#7B68EE]/20 via-[#6A5ACD]/20 to-[#5C2EF2]/20"
+        data-aos="fade-up"
+      >
         <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
 
         <div className="relative max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">
+          <h2
+            className="text-4xl md:text-5xl font-bold text-center text-white mb-12"
+            data-aos="fade-down"
+          >
             What Our Users Say
           </h2>
 
           <Carousel autoplay arrows>
             {testimonialsData.map((testimonial) => (
-              <div key={testimonial.id} className="flex justify-center px-4 ">
-                <div className="bg-white/20 backdrop-blur-lg p-8  text-center shadow-lg  transform transition duration-300">
+              <div key={testimonial.id} className="flex justify-center px-4">
+                <div
+                  className="bg-white/20 backdrop-blur-lg p-8 text-center shadow-lg rounded-lg transform transition duration-300"
+                  data-aos="flip-up"
+                >
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
@@ -198,8 +238,6 @@ const Home = () => {
           </Carousel>
         </div>
       </div>
-
-      {/* part 5 */}
     </div>
   );
 };
