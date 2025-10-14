@@ -3,10 +3,10 @@ import Header from "../Header/Header";
 
 function Navbar() {
   return (
-    <>
+    <div>
       <Header />
 
-      <div className="bg-white shadow-sm mt-16">
+      <div className="bg-white shadow-sm">
         <div className="flex max-w-7xl mx-auto px-4 py-2">
           <ul className="flex gap-5 text-blue-600">
             <li>
@@ -21,7 +21,7 @@ function Navbar() {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
